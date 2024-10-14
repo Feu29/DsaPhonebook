@@ -14,40 +14,45 @@ Uendjipa Kaukuetu 	224064657
 Shikundule T Mesias 	224033689 
  
  
+
+
+
  
  
 SECTION A 
-- Data Structure:  The phonebook application will use a linked list data structure. A linked list will allow us to dynamically manage contacts, making it easier to insert and delete contacts without worrying about fixed sizes. 
+- Data Structure:  We used an array to store the data that a user enters and the array loads the data into into the text file and and this textfile as a database . 
  
 PhoneBook System 
  
 Module/function Pseudocode Representation  
-1. Insert Contact 
-- Allows us to add a new contact to the phonebook 
- 
-FUNCTION InsertContact(head, newContact) 
-    IF head IS NULL THEN         head = newContact     ELSE         current = head         WHILE current.next IS NOT NULL DO 
-            current = current.next         ENDWHILE 
-        current.next = newContact 
-    ENDIF 
-    RETURN head 
-END FUNCTION 
- 
+1.FUNCTION InsertContact(contacts, newContact)
+    IF contacts IS NULL THEN
+        contacts = new ArrayList
+    ENDIF
+    contacts.add(newContact)  // Add the contact to the list
+    writeContactToFile(newContact)  // Write contact to file
+END FUNCTION
+
  
   
-2. Search Contact 
--Finds a contact by name 
+2. FUNCTION SearchContact(contacts){
+   String search;  
+       FOR(int i = 0 ; i<contacts; i++){
+        IF (contact.firstName = search OR contact.lastName == search OR contact.phoneNumber == search OR contact.address == search) THEN
+             RETURN resultList
+    END FOR
+    IF resultList IS EMPTY THEN
+        RETURN "Contact not found"
+END FUNCTION
+
+FUNCTION DisplayContacts(contacts)
+    FOR each contact IN contacts DO
+        DISPLAY (contact.firstName , contact.lastName,contact.phoneNumber,contact.address);
+    END FOR
+END FUNCTION
  
-FUNCTION SearchContact(head, name)     current = head 
-    WHILE current IS NOT NULL DO 
-        IF current.name == name THEN 
-            RETURN current         ENDIF 
-        current = current.next 
-    ENDWHILE 
-    RETURN "Contact not found" END FUNCTION 
  
- 
-3. Display All Contacts 
+4. Display All Contacts 
 -Shows all the contacts in the phonebook 
  
 FUNCTION DisplayContacts(head)     current = head 
@@ -57,80 +62,46 @@ FUNCTION DisplayContacts(head)     current = head
     ENDWHILE 
 END FUNCTION 
  
-4. Delete Contact 
--Removes a contact from the phonebook 
- 
-FUNCTION DeleteContact(head, name) 
-    IF head IS NULL THEN 
-        PRINT "Phonebook is empty" 
-        RETURN head 
-    ENDIF 
- 
-    IF head.name == name THEN         head = head.next 
-        RETURN head 
-    ENDIF 
- 
-    current = head 
-    WHILE current.next IS NOT NULL DO         IF current.next.name == name THEN             current.next = current.next.next 
-            RETURN head         ENDIF 
-        current = current.next 
-    ENDWHILE 
-    PRINT "Contact not found" 
-    RETURN head END FUNCTION 
+FUNCTION DeleteContact(contacts, index)
+    IF index >= 0 AND index < contacts.size THEN
+        contacts.remove(index)
+        saveContactsToFile(contacts)
+    ELSE
+        PRINT "Contact not found"
+    ENDIF
+END FUNCTION
  
  
- 
-5. Update Contact 
--Changes the details of an existing contact 
- 
-FUNCTION UpdateContact(head, name, newContact)     current = head 
-    WHILE current IS NOT NULL DO 
-        IF current.name == name THEN             current.name = newContact.name 
-            current.phoneNumber = newContact.phoneNumber 
-            RETURN         ENDIF 
-        current = current.next 
-    ENDWHILE 
-    PRINT "Contact not found" END FUNCTION 
+5.FUNCTION UpdateContact(contacts, index, newContact)
+    IF index >= 0 AND index < contacts.size THEN
+        contacts[index] = newContact
+        saveContactsToFile(contacts)
+    ELSE
+        PRINT "Contact not found"
+    ENDIF
+END FUNCTION
  
  
- 
-6. Sort Contacts (optional) 
--Organizes the contacts in alphabetical order by name 
- 
-FUNCTION SortContacts(head) 
-    IF head IS NULL OR head.next IS NULL THEN 
-        RETURN head 
- 
-    sorted = NULL     current = head 
-    WHILE current IS NOT NULL DO 
-        next = current.next 
-        sorted = SortedInsert(sorted, current) 
-        current = next 
-    ENDWHILE 
-    RETURN sorted 
-END FUNCTION 
- 
-FUNCTION SortedInsert(sorted, newContact) 
-    IF sorted IS NULL OR sorted.name >= newContact.name THEN         newContact.next = sorted 
-        RETURN newContact 
-    ENDIF 
- 
-    current = sorted 
-    WHILE current.next IS NOT NULL AND current.next.name < 
-newContact.name DO 
-        current = current.next     ENDWHILE 
-    newContact.next = current.next     current.next = newContact 
-    RETURN sorted END FUNCTION 
+6.FUNCTION SortContacts(contacts, ascending)
+    IF ascending IS TRUE THEN
+        SORT contacts BY contact.firstName + " " + contact.lastName ASC
+    ELSE
+        SORT contacts BY contact.firstName + " " + contact.lastName DESC
+    ENDIF
+    saveContactsToFile(contacts)  // Save sorted contacts to file
+    RETURN contacts
+END FUNCTION
+
  
  
  
  
-7. Analyze Search Efficiency 
--Measures how long the search operation takes 
- 
-FUNCTION AnalyzeSearchEfficiency(head, name) 
-    startTime = CURRENT_TIME     SearchContact(head, name)     endTime = CURRENT_TIME 
-    PRINT "Search Time: " + (endTime - startTime) END FUNCTION 
+7. FUNCTION AnalyzeSearchEfficiency(contacts, query)
+    startTime = CURRENT_TIME
+    SearchContact(contacts, query)
+    endTime = CURRENT_TIME
+    PRINT "Search Time: " + (endTime - startTime)
+END FUNCTION
  
  
  
