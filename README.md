@@ -158,7 +158,8 @@ Flowchart Representation
 2.	Search Contact 
  
  
-  
+  ![image](https://github.com/user-attachments/assets/6cb20e6c-7ac9-420f-ae1b-cad631787ecf)
+
  
  
  
@@ -174,7 +175,8 @@ Flowchart Representation
  
  
  
- 
+ ![image](https://github.com/user-attachments/assets/9d4bdea6-2b22-4410-a580-d72ed394c0f1)
+
  
  
  
@@ -184,7 +186,8 @@ Flowchart Representation
  
  
  
- 
+ ![image](https://github.com/user-attachments/assets/a52dd233-84ae-4513-8897-c77d465ea856)
+
  
  
  
@@ -194,7 +197,8 @@ Flowchart Representation
  
  
   
- 
+ ![image](https://github.com/user-attachments/assets/09328faa-99f7-466f-a9d4-2924d71b0395)
+
  
  
  
@@ -208,7 +212,8 @@ Flowchart Representation
  
  	
 
- 
+ ![image](https://github.com/user-attachments/assets/329a28d2-c20b-4a6b-91c8-294e76403085)
+
  
  
  
@@ -217,7 +222,8 @@ Flowchart Representation
  	 
 	ii. 	For SortedInsert 
   
- 
+ ![image](https://github.com/user-attachments/assets/287f2f9f-4273-4f19-bec6-9e7f6dd1befe)
+
  
  
  
@@ -226,7 +232,8 @@ Flowchart Representation
 7.Analyze Search Efficiency 
  
  
- 
+ ![image](https://github.com/user-attachments/assets/aec83e5c-84ef-4061-936f-7bb86a6ae001)
+
  
  
  
@@ -247,6 +254,7 @@ FLOW Chart OF THE ENTIRE PHONE BOOK
 
 
 
- 
+ ![image](https://github.com/user-attachments/assets/4309e1ff-0353-424c-ae63-482fab6e09eb)
+
 
  
